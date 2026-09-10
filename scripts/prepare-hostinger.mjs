@@ -41,7 +41,11 @@ function walkFiles(dir, files = []) {
 }
 
 console.log("1) Building static export...")
-execSync("npm run build", { cwd: root, stdio: "inherit" })
+execSync("npm run build", {
+  cwd: root,
+  stdio: "inherit",
+  env: { ...process.env, HOSTINGER: "1" },
+})
 
 if (!fs.existsSync(outDir)) {
   console.error("No existe /out. Abortando.")

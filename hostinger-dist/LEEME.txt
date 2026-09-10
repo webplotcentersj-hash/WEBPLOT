@@ -1,0 +1,21 @@
+PLOT CENTER — SUBIDA A HOSTINGER
+================================
+
+1) Entrar a hPanel → Archivos → Administrador de archivos
+2) Abrir public_html
+3) BORRAR el contenido viejo de public_html (si hay WordPress/HTML anterior)
+4) Subir plot-center-hostinger.zip
+5) Clic derecho → Extraer
+6) Verificar que veas estos archivos DENTRO de public_html:
+   - index.html
+   - .htaccess
+   - next/   (carpeta de JS/CSS)
+   - images/
+   - servicios/
+
+IMPORTANTE:
+- index.html debe quedar directo en public_html (NO dentro de otra carpeta)
+- Si el sitio queda en blanco, revisar que exista la carpeta "next"
+- El chat embebido solo funciona bien en dominios plotcenter.com.ar
+
+Soporte: regenerar con  npm run hostinger

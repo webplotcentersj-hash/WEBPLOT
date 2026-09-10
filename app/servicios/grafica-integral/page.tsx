@@ -104,10 +104,9 @@ export default function GraficaIntegralPage() {
     const diff = index - currentIndex
     const absDiff = Math.abs(diff)
     const direction = diff > 0 ? 1 : -1
-    const step =
-      typeof window !== "undefined" && window.innerWidth < 640 ? 42 : window.innerWidth < 1024 ? 72 : 100
-    const far =
-      typeof window !== "undefined" && window.innerWidth < 640 ? 160 : 400
+    const width = typeof window !== "undefined" ? window.innerWidth : 1024
+    const step = width < 640 ? 42 : width < 1024 ? 72 : 100
+    const far = width < 640 ? 160 : 400
 
     if (diff === 0) {
       return { x: 0, rotateY: 0, z: 150, scale: 1, opacity: 1, zIndex: 50 }
@@ -116,7 +115,7 @@ export default function GraficaIntegralPage() {
 
     return {
       x: direction * (absDiff * step),
-      rotateY: -direction * (typeof window !== "undefined" && window.innerWidth < 640 ? 8 : 15),
+      rotateY: -direction * (width < 640 ? 8 : 15),
       z: -absDiff * 40,
       scale: 1 - absDiff * 0.08,
       opacity: 1 - absDiff * 0.15,
